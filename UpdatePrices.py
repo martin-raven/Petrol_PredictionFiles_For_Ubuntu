@@ -96,12 +96,14 @@ def predict_petrol_price_week():
     Real_Price = group['Weighted_Price'].mean()
     value = Real_Price[-1]
     for _ in range(6):
-	    predicted_Petrol_price = predict_point_by_point(value)
-	    predicted_Petrol_price = predicted_Petrol_price[-1][0]
-	    print("printing prediction value of day",_,":",predicted_Petrol_price)
-	    week.append(str("{0:.2f}".format(predicted_Petrol_price)))
-	    value=predicted_Petrol_price
+        predicted_Petrol_price = predict_point_by_point(value)
+        predicted_Petrol_price = predicted_Petrol_price[-1][0]
+        print("printing prediction value of day",
+              _, ":", predicted_Petrol_price)
+        week.append(str("{0:.2f}".format(predicted_Petrol_price)))
+        value = predicted_Petrol_price
     return week
+
 
 get_todays_price()
 get_last_seven_days_price()
